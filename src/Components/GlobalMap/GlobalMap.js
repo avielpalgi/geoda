@@ -3,7 +3,7 @@ import { loadModules } from "esri-loader";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 import MapView from "@arcgis/core/views/MapView.js";
 import Map from "@arcgis/core/Map.js";
-
+import "./GlobalMap.scss";
 const GlobalMap = () => {
   const mapDiv = useRef(null);
 
@@ -15,7 +15,7 @@ const GlobalMap = () => {
   };
 
   const dislpayBeutyContent = (name, beutifulPopulation) => {
-    return `The population of ${name} is ${beutifulPopulation} people`;
+    return `<div class="pop-up">The population of <b>${name}</b> is <b>${beutifulPopulation}</b> people</div>`;
   };
 
   //dislpay the population in millions or thousands with , seperator
