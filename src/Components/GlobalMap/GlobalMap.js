@@ -20,6 +20,8 @@ const GlobalMap = () => {
 
   //dislpay the population in millions or thousands with , seperator
   const displayBeutyNumber = (number) => {
+    //
+    return number;
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
@@ -62,11 +64,13 @@ const GlobalMap = () => {
     };
     const layer = new FeatureLayer({
       url: "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Cities/FeatureServer/0",
-      popupTemplate : popupTemplate
+      popupTemplate : popupTemplate,
+      definitionExpression: "Status = 'National and provincial capital'", // Define the filter expression here
     });
     const map = new Map({
       basemap: "streets",
       layers: [layer],
+
     });
     const view = new MapView({
       container: mapDiv.current,
